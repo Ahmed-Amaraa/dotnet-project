@@ -1,0 +1,160 @@
+@model InventoryManagement.Web.ViewModels.DashboardPageViewModel
+@using System.Linq
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Tableau de bord";
+    var categoryLabels = Model.Summary.TopCategories.Select(c => c.Category).ToArray();
+    var categoryCounts = Model.Summary.TopCategories.Select(c => c.ProductCount).ToArray();
+    var categoryValues = Model.Summary.TopCategories.Select(c => c.InventoryValue).ToArray();
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3">Tableau de bord</h1>
+</div>
+
+@if (TempData.ContainsKey("SuccessMessage"))
+{
+    <div class="alert alert-success" role="alert">@TempData["SuccessMessage"]</div>
+}
+@if (TempData.ContainsKey("ErrorMessage"))
+{
+    <div class="alert alert-danger" role="alert">@TempData["ErrorMessage"]</div>
+}
+
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card text-bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Produits</h5>
+                <p class="display-6">@Model.Summary.TotalProducts</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Fournisseurs</h5>
+                <p class="display-6">@Model.Summary.TotalSuppliers</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Stock faible</h5>
+                <p class="display-6">@Model.Summary.LowStockCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Valeur stock (€)</h5>
+                <p class="display-6">@Model.Summary.InventoryValue.ToString("F2")</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">Répartition par catégorie (quantité)</div>
+            <div class="card-body">
+                <canvas id="categoryChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card h-100">
+            <div class="card-header">Produits en stock critique</div>
+            <div class="card-body p-0">
+                @if (!Model.LowStockProducts.Any())
+                {
+                    <div class="p-3 text-muted">Aucune alerte pour le moment.</div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Quantité</th>
+                                    <th>Seuil</th>
+                                    <th>Fournisseur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.LowStockProducts)
+                                {
+                                    <tr class="table-warning">
+                                        <td>@product.ProductName</td>
+                                        <td>@product.Quantity</td>
+                                        <td>@product.ReorderLevel</td>
+                                        <td>@product.Supplier?.SupplierName</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const categoryLabels = @Html.Raw(JsonSerializer.Serialize(categoryLabels));
+        const categoryCounts = @Html.Raw(JsonSerializer.Serialize(categoryCounts));
+        const categoryValues = @Html.Raw(JsonSerializer.Serialize(categoryValues));
+
+        if (categoryLabels.length > 0) {
+            const ctx = document.getElementById('categoryChart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: categoryLabels,
+                    datasets: [
+                        {
+                            label: 'Quantité',
+                            data: categoryCounts,
+                            backgroundColor: 'rgba(13,110,253,0.5)',
+                            borderColor: 'rgba(13,110,253,0.8)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Valeur (€)',
+                            data: categoryValues,
+                            backgroundColor: 'rgba(25,135,84,0.5)',
+                            borderColor: 'rgba(25,135,84,0.8)',
+                            type: 'line',
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Quantité' }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            title: { display: true, text: 'Valeur (€)' }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+}

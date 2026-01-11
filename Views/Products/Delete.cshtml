@@ -1,0 +1,25 @@
+@model InventoryManagement.Web.Models.Product
+@{
+    ViewData["Title"] = "Supprimer un produit";
+}
+
+<h1 class="h3 mb-3">Confirmer la suppression</h1>
+
+<div class="alert alert-warning">
+    Êtes-vous sûr de vouloir supprimer <strong>@Model.ProductName</strong> ?
+</div>
+
+<dl class="row">
+    <dt class="col-sm-3">Catégorie</dt>
+    <dd class="col-sm-9">@Model.Category</dd>
+    <dt class="col-sm-3">Quantité</dt>
+    <dd class="col-sm-9">@Model.Quantity</dd>
+    <dt class="col-sm-3">Fournisseur</dt>
+    <dd class="col-sm-9">@Model.Supplier?.SupplierName</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>

@@ -1,0 +1,59 @@
+@model InventoryManagement.Web.Models.Supplier
+@{
+    ViewData["Title"] = "Détails fournisseur";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3">@Model.SupplierName</h1>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.SupplierId" class="btn btn-outline-primary me-2">Modifier</a>
+        <a asp-action="Index" class="btn btn-secondary">Retour</a>
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Téléphone</dt>
+            <dd class="col-sm-9">@Model.ContactNumber</dd>
+            <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">@Model.Email</dd>
+            <dt class="col-sm-3">Adresse</dt>
+            <dd class="col-sm-9">@Model.Address</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Produits associés</div>
+    <div class="card-body p-0">
+        @if (Model.Products is null || !Model.Products.Any())
+        {
+            <div class="p-3 text-muted">Aucun produit associé.</div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Quantité</th>
+                            <th>Seuil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model.Products)
+                        {
+                            <tr>
+                                <td>@product.ProductName</td>
+                                <td>@product.Quantity</td>
+                                <td>@product.ReorderLevel</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,20 @@
+@model InventoryManagement.Web.ViewModels.ProductFormViewModel
+@{
+    ViewData["Title"] = "Ajouter un produit";
+}
+
+<h1 class="h3 mb-3">Créer un produit</h1>
+
+<form asp-action="Create" method="post">
+    <div class="card mb-3">
+        <div class="card-body">
+            <partial name="_ProductForm" model="Model" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

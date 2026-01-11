@@ -1,0 +1,21 @@
+@model InventoryManagement.Web.Models.Supplier
+@{
+    ViewData["Title"] = "Modifier un fournisseur";
+}
+
+<h1 class="h3 mb-3">Modifier @Model.SupplierName</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="SupplierId" />
+    <div class="card mb-3">
+        <div class="card-body">
+            <partial name="_SupplierForm" model="Model" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

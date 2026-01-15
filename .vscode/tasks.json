@@ -1,0 +1,337 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "restore-sln",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"InventoryManagement.Web.sln"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "clean-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"clean",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "restore-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "restore-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests-normal",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"n"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "restore-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "restore-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests-verbose",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"/v:d"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "restore-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"restore",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-single",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal",
+				"--filter",
+				"ProductServiceTests.GetLowStockAsync_ReturnsOnlyItemsBelowReorder"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-tests",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-all",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		},
+		{
+			"label": "test-all",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"test",
+				"InventoryManagement.Web.Tests/InventoryManagement.Web.Tests.csproj",
+				"-v",
+				"minimal"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$msCompile"
+			]
+		}
+	]
+}

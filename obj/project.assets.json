@@ -4894,11 +4894,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\stage_aicourse\\dotnet\\InventoryManagement.Web\\InventoryManagement.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Hp\\Desktop\\stage_aicourse\\dotnet2\\InventoryManagement.Web\\InventoryManagement.Web.csproj",
       "projectName": "InventoryManagement.Web",
-      "projectPath": "C:\\Users\\Hp\\Desktop\\stage_aicourse\\dotnet\\InventoryManagement.Web\\InventoryManagement.Web.csproj",
+      "projectPath": "C:\\Users\\Hp\\Desktop\\stage_aicourse\\dotnet2\\InventoryManagement.Web\\InventoryManagement.Web.csproj",
       "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hp\\Desktop\\stage_aicourse\\dotnet\\InventoryManagement.Web\\obj\\",
+      "outputPath": "C:\\Users\\Hp\\Desktop\\stage_aicourse\\dotnet2\\InventoryManagement.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
